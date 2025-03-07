@@ -75,7 +75,6 @@ php artisan migrate --seed
 
 ・MySQL: 8.0.26
 
-【　テーブル設計　】
 
 【　ER図　】
 
