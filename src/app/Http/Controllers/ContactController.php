@@ -18,9 +18,14 @@ use App\Models\Category;
 // ↓  Contactモデルのインポート: このコードは、App\Models\Contact というモデルクラスをインポートする。このモデルは、問い合わせに関するデータの操作を行うために使用される。
 use App\Models\Contact;
 
+use App\Models\User;
+
 
 // ↓  Requestクラスのインポート: このコードは、Illuminate\Http\Request というクラスをインポートする。このクラスは、HTTPリクエストに関する情報を扱うために使用される。
 use Illuminate\Http\Request;
+
+
+use Illuminate\Support\Facades\Auth;
 
 
 
