@@ -1,0 +1,322 @@
+/* お問い合わせフォームのメイン領域を囲む要素 */
+.contact-form__inner {
+/*
+・margin: 32px auto 0;
+上下に32pxのマージン、左右には自動で余白を割り当て、要素を水平方向に中央揃えにする。
+・width: 74%;
+要素の幅を親要素の74%に設定。これは、フォームがページの中央に配置されすぎず、両側に少し余白ができるように調整するための設定。
+・font-size: 16px;
+要素内のテキストのフォントサイズを16pxに設定。
+これは、フォーム内のテキストの大きさを統一するための設定。 */
+  margin: 32px auto 0;
+  width: 74%;
+  font-size: 16px;
+}
+
+
+
+/* フォーム */
+
+/* フォーム内のグループ要素のスタイルを定義 */
+.contact-form__group {
+/*
+・display: grid;: グリッドレイアウトを使用。
+・align-items: center;: グループ内の要素を垂直方向に中央揃えする。
+・margin-top: 32px;: 上部に32pxのマージンを設定。
+・grid-template-columns: 1fr 2fr;
+  グループを2つの列に分割し、最初の列の幅は2番目の列の半分になる。 */
+  display: grid;
+  align-items: center;
+  margin-top: 32px;
+
+  grid-template-columns: 1fr 2fr;
+}
+
+/* 最初のグループ要素のスタイルを定義 */
+.contact-form__group:first-of-type{
+/* margin-top: 0;: 上部のマージンを削除 */
+  margin-top: 0;
+}
+
+/* 最後のグループ要素のスタイルを定義 */
+.contact-form__group:last-of-type {
+/* align-items: flex-start;: グループ内の要素を垂直方向に上揃えする。 */
+  align-items: flex-start;
+}
+
+/* 必須項目を示すテキストのスタイルを定義 */
+.contact-form__required {
+/* color: #FF9494;: テキストの色を指定の色（赤っぽい色）に指定。 */
+  color: #FF9494;
+}
+
+
+
+/* フォーム内の入力フィールドのスタイルを定義 */
+.contact-form__input {
+/*
+・padding: 8px 16px;: 入力フィールドの内側に上下8px、左右16pxのパディングを設定。
+・background-color: #F4F4F4;: 入力フィールドの背景色を指定の色（薄い灰色）に設定。
+・color: #BEB1A6;: 入力フィールド内のテキストの色を指定の色（淡い灰色）に設定。 */
+  padding: 8px 16px;
+  background-color: #F4F4F4;
+  color: #BEB1A6;
+}
+
+
+/* 名前入力欄と電話番号入力欄のグループのスタイルを定義 */
+.contact-form__name-inputs,
+.contact-form__tel-inputs {
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+・align-items: center;: グループ内の要素を垂直方向に中央揃えする。
+・justify-content: space-between;:
+グループ内の要素を水平方向に均等に分布させ、両端の要素は左右の端に配置。
+・gap: 32px;: グループ内の要素間に32pxの隙間を設定。 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* 名前入力欄のスタイルを定義 */
+.contact-form__name-input {
+  /* 入力欄の幅を親要素の100%に設定。 */
+  width: 100%;
+}
+
+/* 性別入力欄のグループのスタイルを定義 */
+.contact-form__gender-inputs {
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+・justify-content: left;: グループ内の要素を水平方向に左揃えする */
+  display: flex;
+  justify-content: left;
+}
+
+/* 性別選択肢のスタイルを定義 */
+.contact-form__gender-option {
+/* margin-right: 64px;: 右側に64pxのマージンを設定。 */
+  margin-right: 64px;
+}
+
+/* 性別選択ラジオボタンのスタイルを定義 */
+.contact-form__gender-input {
+/* position: absolute;: 要素を絶対位置で配置 */
+  position: absolute;
+/*
+-webkit-appearance: none; -moz-appearance: none; appearance: none;:
+ブラウザデフォルトのラジオボタンの外観を非表示にする。 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/*   ※  appearance: none; は、CSSのプロパティの一つで、
+ブラウザがデフォルトで要素に与えるスタイルをリセットする働きをする。
+特に、フォーム要素（ボタン、チェックボックス、ラジオボタンなど）の見た目をカスタマイズしたい場合に頻繁に使用される。
+
+なぜ使うのか？
+ブラウザ間の表示の統一:
+各ブラウザは、フォーム要素のデフォルトのスタイルが異なるため、同じHTMLコードでも異なる見た目になることがある。
+appearance: none; を指定することで、ブラウザ間の表示の差をなくし、統一感のあるデザインにすることができる。
+
+カスタムデザイン:
+デフォルトのスタイルをリセットすることで、CSSで自由にデザインをカスタマイズすることができる。ボタンを丸角にしたり、チェックボックスを画像に置き換えたりといったことが可能である。
+
+具体的にどのような働きをするのか？
+-webkit-appearance: none;: WebKit系ブラウザ（Safari、Chromeなど）に対して、デフォルトのスタイルをリセットする。
+-moz-appearance: none;: Firefoxに対してデフォルトのスタイルをリセットする。
+appearance: none;:最新のブラウザに対してデフォルトのスタイルをリセットする。
+
+これらのプロパティを組み合わせることで、主要なブラウザで同じようにスタイルを適用することができる。
+-------------------------------------------------------------------- --------------------------------------------------------------------
+※  絶対位置と相対位置
+
+絶対位置と相対位置について
+CSSで要素の位置を調整する際に、絶対位置と相対位置という概念が登場する。これらは、positionプロパティの値によって指定され、要素の配置方法を大きく左右する。
+
+絶対位置 (position: absolute;)
+・特徴:
+親要素ではなく、ブラウザのviewport (ビューポート) を基準にして配置される。
+top, right, bottom, leftといったプロパティで、ビューポートからの距離を
+指定することで、要素の位置を細かく調整できる。
+親要素の他の要素の影響を受けずに、自由に配置できる。
+・使い方:
+オーバーレイ（重ねるような表示）を実現したい場合
+要素を固定したい場合
+他の要素から完全に独立した位置に配置したい場合
+
+
+相対位置 (position: relative;)
+・特徴:
+元々の位置を基準にして、相対的に移動する。
+top, right, bottom, leftといったプロパティで、元の位置からの相対的な距離を指定。
+親要素内の他の要素には影響を与えない。
+・使い方:
+要素を少しだけずらしたい場合
+他の要素との位置関係を調整したい場合
+絶対位置の要素の基準となる親要素に指定する場合
+
+--- まとめ ---
+絶対位置: ブラウザ全体を基準に、自由に要素を配置できる。
+相対位置: 元々の位置を基準に、相対的に移動できる。
+
+どちらを使うかは、実現したいレイアウトによって異なる。一般的に、
+オーバーレイや固定要素など他の要素から独立した位置に配置したい場合は絶対位置、
+少しだけ要素をずらしたり、他の要素との位置関係を調整したい場合は相対位置が使用される。
+---------------------------------------------------------------------- */
+
+/* 性別選択のテキスト部分のスタイルを定義 */
+.contact-form__gender-text {
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+・align-items: center;: テキストとアイコンを垂直方向に中央揃えする。 */
+  display: flex;
+  align-items: center;
+}
+
+/* 性別選択のテキスト部分の前に、擬似要素（アイコン）を追加する。 */
+.contact-form__gender-text::before {
+/*
+・display: block;: アイコンをブロック要素として表示。
+・margin-right: 8px;: アイコンの右側に8pxのマージンを設定。
+・width: 24px; height: 24px;: アイコンのサイズを24px×24pxに設定。
+・border: 1px solid #8B7969;: アイコンの外側に1ピクセルのボーダーをつける。
+・border-radius: 50%;: アイコンを丸くする。
+・content: '';: アイコンに空のコンテンツを設定します。 */
+  display: block;
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #8B7969;
+  border-radius: 50%;
+  content: '';
+}
+
+
+/* 性別選択のラジオボタンがチェックされた場合、
+   その後のテキスト部分のアイコンのスタイルを定義。 */
+.contact-form__gender-input:checked+.contact-form__gender-text::before {
+/* background: #8B7969;: アイコンの背景色を指定の色にする。 */
+  background: #8B7969;
+}
+
+
+/* 電話番号入力欄のスタイルを定義 */
+.contact-form__tel-input {
+/* width: calc(100%/3);: 入力欄の幅を親要素の1/3に設定。
+text-align: center;: 入力されたテキストを中央揃えにする。 */
+  width: calc(100%/3);
+  text-align: center;
+}
+
+/* 選択ボックスを含む要素のスタイルを定義 */
+.contact-form__select-inner {
+/* position: relative;:
+要素を相対位置に設定。これにより、子要素に対して相対的な位置指定が可能になる。 */
+  position: relative;
+}
+
+/* 選択ボックスの右側に三角形のアイコンを表示するための擬似要素 */
+.contact-form__select-inner::after {
+/*
+・position: absolute;: アイコンを絶対位置で配置。
+・top: 50%; left: 42%;: アイコンの位置を親要素の中央付近に設定。
+・width: 0; height: 0;:アイコンの幅と高さを0に設定しボーダーで三角形を描画。
+・border-top: 12px solid #BEB1A6;: 三角形の上辺を指定の色で描画する。
+・border-right: 12px solid transparent;
+  border-left: 12px solid transparent;: 三角形の左右の辺を透明にする。
+・content: "";: 擬似要素に空のコンテンツを設定。
+・transform: translateY(-50%);: アイコンを垂直方向に中央揃えする。 */
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  width: 0;
+  height: 0;
+  border-top: 12px solid #BEB1A6;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  content: "";
+  transform: translateY(-50%);
+
+/* ※  擬似要素とは・・・
+HTMLで記述された要素に対して、CSSで追加の装飾やスタイルを施すことができる機能。まるでHTMLに新しい要素を追加したかのように、既存の要素の一部にスタイルを適用できる。
+
+--- 擬似要素を使うメリット---
+・HTML構造をシンプルに保てる: HTMLの構造を複雑にすることなく、CSSだけでデザインを細かく調整できる。
+・柔軟なデザイン: HTMLの要素を直接変更することなく、様々な表現が可能になる。 例えば、リストの最初の項目にだけ特別な装飾を施したり、リンクの後ろに矢印アイコンを表示したり、など。
+・効率的なスタイル設定: 一度定義した擬似要素のスタイルを、複数の要素に再利用できる。
+--- 代表的な擬似要素 ---
+::before: 選択した要素の前にコンテンツを追加。
+::after: 選択した要素の後にコンテンツを追加。
+::first-line: 選択した要素の最初の行にスタイルを適用。
+::first-letter: 選択した要素の最初の文字にスタイルを適用。 */
+}
+
+/* 選択ボックスのスタイルを定義 */
+.contact-form__select {
+/*
+・padding: 8px 16px;: 入力欄の内側に上下8px、左右16pxのパディングを設定。
+・width: 50%;: 選択ボックスの幅を親要素の50%に設定。
+・background-color: #F4F4F4;: 背景色を指定の色にする。
+・color: #BEB1A6;: テキストの色を指定の色にする。 */
+  padding: 8px 16px;
+  width: 50%;
+  background-color: #F4F4F4;
+  color: #BEB1A6;
+}
+
+/* テキストエリアのスタイルを定義 */
+.contact-form__textarea {
+/*
+・padding: 8px 16px;: 入力欄の内側に上下8px、左右16pxのパディングを設定。
+・height: 144px;: テキストエリアの高さを144pxに設定。
+・background-color: #F4F4F4;: 背景色を指定の色にする。
+・color: #BEB1A6;: テキストの色を指定の色にする */
+  padding: 8px 16px;
+  height: 144px;
+  background-color: #F4F4F4;
+  color: #BEB1A6;
+}
+
+/* お問い合わせフォームの送信ボタンに対してスタイルを定義。 */
+.contact-form__btn {
+  /* 32px auto 0:
+  上に32px、下に0pxのマージンを設定、左右には自動的に余白を指定。 */
+  margin: 32px auto 0;
+}
+
+
+
+/* エラーメッセージ */
+.contact-form__error-message {
+/*
+・margin-top: 8px;: エラーメッセージの上部に8pxのマージンを設定。
+color: #FF9494;: エラーメッセージのテキストの色を赤みがかかった色（#FF9494）に設定。
+・grid-column: 2;: グリッドレイアウトを使用している場合、エラーメッセージを2列目に配置。 */
+  margin-top: 8px;
+  color: #FF9494;
+
+  grid-column: 2;
+}
+
+/* 前入力欄のグループ内のエラーメッセージのスタイルを定義 */
+.contact-form__name-group .contact-form__error-message{
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+・align-items: center;: 要素を垂直方向に中央揃えする。
+・justify-content: space-between;: 要素を水平方向に均等に分布させる。
+・gap: 32px;: 要素間に32pxの隙間を作る。 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 32px;
+}
+
+/* 名前のエラーメッセージと姓のエラーメッセージの共通スタイルを定義 */
+.contact-form__error-message-first-name,
+.contact-form__error-message-last-name {
+/* width: 100%;: 幅を親要素の100%に設定 */
+  width: 100%;
+}

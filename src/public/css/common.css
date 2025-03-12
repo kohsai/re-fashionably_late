@@ -1,0 +1,222 @@
+/* HTMLのルート要素である<html>タグと、
+その子要素である<body>タグの両方にスタイルを適用する。 */
+html,
+body {
+/* この2つの要素の高さを親要素の高さの100%に設定する。
+  つまり、ブラウザウィンドウの高さに合わせて、HTMLとbody要素の高さが自動的に調整される。 */
+    height: 100%;
+}
+
+/* 以下の3つの要素にスタイルを適用 */
+body, textarea, input {
+/* これらの要素内のテキストの色を指定された色（#8B7966）に設定する。
+  つまり、body内のテキスト、テキストエリア内の文字、入力フィールド内の文字がすべてこの色になる。 */
+    color: #8B7969;
+
+/*
+このCSSコードによって、Webページは以下のような特徴を持つ。
+
+・高さ: ブラウザウィンドウの高さに合わせ、ページ全体が拡大縮小する。
+・テキスト色: ページ内のほとんどのテキストの色が統一され、視覚的にまとまりのあるデザインになる。
+
+応用
+・背景画像: body要素に背景画像を設定することで、画面いっぱいに背景画像を敷き詰めることができる。
+・レイアウト: heightプロパティと相まって、flexboxやgridといったレイアウトシステムと組み合わせることで、より複雑なレイアウトを作成できる。 */
+}
+
+
+/* <textarea>要素と<input>要素のプレースホルダーにスタイルを適用する。 */
+textarea::placeholder,
+input::placeholder {
+/* プレースホルダーの文字色を指定された色（#BEB1A6: 淡い灰色）に変更。
+この設定により、入力欄が空のときに表示される文字が、背景色と少しコントラストを付け、視覚的に分かりやすくなる。 */
+    color: #BEB1A6;
+}
+
+
+.app {
+/* この要素とその子要素をフレックスボックスレイアウトにすることで、
+柔軟なレイアウトが可能になる。
+・flex-direction: column; 子要素を縦方向に並べるように設定。
+・height: 100%;  この要素の高さを親要素の高さの100%に設定。 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+
+
+/* ヘッダー */
+.header {
+/*
+・display: grid;: グリッドレイアウトを使用。
+・align-items: center;: ヘッダー内の要素を垂直方向に中央揃えする。
+・padding: 16px 0;: ヘッダーの上下左右にパディングを設定（上下16px、左右0px）。
+・height: 80px;: ヘッダーの高さを80pxに設定。
+・border: 1px solid #E0DFDE;: ヘッダーの外側に1ピクセルの太さのボーダーを付ける。色は指定の色。
+・text-align: center;: ヘッダー内のテキストを中央揃えにする。
+・font-family: serif;: ヘッダー内のフォントをセリフ体（明朝体など）に設定。
+
+・grid-template-columns: repeat(3, 1fr);: ヘッダーを3つの列に分割し、各列の幅を均等にする。
+・grid-template-rows: 1fr;: ヘッダーを1行に分割する。 */
+    display: grid;
+    align-items: center;
+    padding: 16px 0;
+    height: 80px;
+    border: 1px solid #E0DFDE;
+    text-align: center;
+    font-family: serif;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+
+/* ヘッダー内の見出し部分のスタイルを定義 */
+.header__heading {
+/*
+・font-weight: lighter;: フォントの太さを薄くする。
+・font-size: 32px;: フォントサイズを32pxに設定。
+・grid-column: 2;: ヘッダー内の2列目に配置する。 */
+    font-weight: lighter;
+    font-size: 32px;
+    grid-column: 2;
+}
+
+/* ヘッダー内のリンク部分のスタイルを定義 */
+.header__link {
+/*
+・margin: 0 auto;: リンクを水平方向に中央揃えする。
+・width: 80px;: リンクの幅を80pxに設定。
+・border:1px solid #D9C6B5;リンクの外側に1ピクセルの太さのボーダーをつける。
+・background-color: #F0F0F0;: リンクの背景色を指定の色にする。
+・color: #D9C6B5;: リンクの文字色を指定の色にする。
+・text-decoration: none;: リンクのテキストに下線を付けない設定。
+・grid-column: 3;: ヘッダー内の3列目に配置する。 */
+    margin: 0 auto;
+    width: 80px;
+    border: 1px solid #D9C6B5;
+    background-color: #F0F0F0;
+    color: #D9C6B5;
+    text-decoration: none;
+    grid-column: 3;
+}
+
+
+
+
+
+/* コンテンツ */
+.content {
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+これにより、子要素の配置を柔軟に制御できる。
+・flex-direction: column;: 子要素を縦方向に並べる。
+・flex-grow: 1;: 親要素の空きスペースをできるだけ埋めるようにする。
+つまり、コンテンツ領域がブラウザのサイズに合わせて伸縮する。
+・justify-content: center;: 子要素を垂直方向に中央揃えする。
+・padding: 48px;: コンテンツ領域の周囲に48pxのパディングを設定。 */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 48px;
+}
+
+/* コンテンツ内の見出し部分のスタイルを定義 */
+.content__heading {
+/*
+・text-align: center;: テキストを中央揃えします。
+・font-weight: 100;: フォントの太さを最も薄くします。
+・font-size: 32px;: フォントサイズを32pxに設定します。
+・font-family: serif;: フォントをセリフ体（明朝体など）に設定 */
+    text-align: center;
+    font-weight: 100;
+    font-size: 32px;
+    font-family: serif;
+}
+
+
+
+
+/* ボタン */
+.btn {
+/*
+・display: block;: ボタンをブロック要素として表示。
+これにより、ボタン全体をクリックできる領域にする。
+・padding: 8px 32px;: ボタンの内側に上下8px、左右32pxのパディングを設定。
+これにより、ボタンのテキストとボタンの縁との間にスペースができる。
+・border: none;: ボタンの外枠のボーダーを非表示にする。
+・background-color: #82756A;: ボタンの背景色を指定された色（#82756A: 茶色系）にする。
+・color: #FFF;: ボタンの文字色を白に指定。
+・font-size: 16px;: ボタン内のテキストのフォントサイズを16pxに設定。
+・cursor: pointer;: マウスポインタがボタンの上に乗ったときに、ポインタが指の形に変わる。これにより、ユーザーはクリックできることを直感的に理解できる。 */
+    display: block;
+    padding: 8px 32px;
+    border: none;
+    background-color: #82756A;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+
+/* ページネーション */
+/* ページネーション（ページ番号表示）部分のスタイルを定義 */
+.pagination {
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+これにより、ページ番号を横並びに並べることができる。
+・justify-content: center;: ページ番号を水平方向に中央揃えする。
+・list-style: none;:リスト形式のデフォルトのスタイル（箇条書きなど）を削除。*/
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+/* アクティブでないページ番号のスタイルを定義。 */
+.pagination li:not(.active) {
+/*
+・border: 1px solid #E0DFDE;: ページ番号の周りに1ピクセルのボーダーをつける。色は指定の色。
+・padding: 4px 12px;ページ番号の内側に上下4px、左右12pxのパディングを設定。 */
+    border: 1px solid #E0DFDE;
+    padding: 4px 12px;
+}
+
+/* 最後のページ番号以外のページ番号のスタイルを定義 */
+.pagination li:not(:last-child) {
+/* border-right: none;: 右側のボーダーを削除。
+   これにより、ページ番号の間の線が連続して表示される。 */
+    border-right: none;
+}
+
+/* ページ番号のリンク部分のスタイルを定義 */
+.pagination a {
+/*
+・color: #8B7969;: リンクの文字色を指定の色にする。
+・text-decoration: none;: リンクのテキストに下線を付けない。 */
+    color: #8B7969;
+    text-decoration: none;
+}
+
+/* ページ番号のリンク部分のスタイルを定義 */
+.pagination__link {
+/* text-decoration: none;: リンクのテキストに下線を付けない。 */
+    text-decoration: none;
+}
+
+/* アクティブなページ番号のスタイルを定義。 */
+.active {
+/*
+・padding: 4px 12px;:ページ番号の内側に上下4px、左右12pxのパディングを設定。
+・border: 1px solid #8B7969;ページ番号の周りに1ピクセルのボーダーをつける。
+・background-color: #8B7969;: ページ番号の背景色を指定の色にする。
+・color: #FFF;: ページ番号の文字色を白に指定。 */
+    padding: 4px 12px;
+    border: 1px solid #8B7969;
+    background-color: #8B7969;
+    color: #FFF;
+}

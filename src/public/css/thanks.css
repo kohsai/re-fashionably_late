@@ -1,0 +1,70 @@
+ /* .headerクラスが付与された要素（おそらくヘッダー部分）を非表示にする。 */
+.header {
+  display: none;
+}
+
+/* サンクスページの全体的なレイアウトを定義 */
+.thanks-page {
+/*
+・display: flex;: フレックスボックスレイアウトを使用し子要素を横並びに配置。
+・align-items: center;: 子要素を垂直方向に中央揃えする。
+・justify-content: center;: 子要素を水平方向に中央揃えする。
+・height: 100vh;: ページの高さをビューポートの高さ(100%)に設定。 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* サンクスページ内のメッセージ部分のスタイルを定義 */
+.thanks-page__message {
+/* font-weight: bold;: フォントを太字にする。
+font-size: 24px;: フォントサイズを24pxに設定。 */
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* サンクスページ内のボタンのスタイルを定義 */
+.thanks-page__btn {
+/* margin: 32px auto 0;:
+ボタンの上下に32pxのマージン、左右に自動で中央揃えのマージンを設定。 */
+  margin: 32px auto 0;
+}
+
+/* サンクスページの背景に重ねるテキストレイヤーのスタイルを定義 */
+.thanks-page-bg__inner {
+/*
+position: absolute;: 絶対位置で配置。
+top: 50%; left: 50%;: ページの中央に配置。
+z-index: -1;: 背景レイヤーとして、他の要素の下に配置。
+width: 100%;: 幅を100%に設定。
+text-align: center;: テキストを中央揃えする。
+font-family: serif;: セリフ体フォントを使用。
+opacity: 0.05;: 透明度を5%に設定。
+transform: translate(-50%, -50%);: 要素を正確に中央に配置する。 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: 100%;
+  text-align: center;
+  font-family: serif;
+  opacity: 0.05;
+  transform: translate(-50%, -50%);
+}
+/* ※  「セリフ体（Serif typeface）」とは、
+文字の端に「セリフ（serif）」と呼ばれる装飾がついている欧文書体のこと。
+手書き文字の名残を感じさせるデザインが特徴で、
+「古典的」「伝統的」といった印象を与えたいときによく用いられる。
+ひと口に「セリフ体」と言っても、実は数多くの種類があり、
+線のような細いセリフをもつセリフ体は近代的でおしゃれな雰囲気をもち、
+太いセリフをもつフォントは力強さを感じさせる。
+
+なお、セリフ体とよく似た名前の書体に「サンセリフ体（Sans-serif typeface）」があり、セリフ（先端の装飾）が付いていない欧文書体を指す。 */
+
+
+/* 背景テキストのスタイルを定義 */
+.thanks-page-bg__text{
+/* font-size: 18vw;: フォントサイズをビューポート幅の18%に設定。 */
+  font-size: 18vw;
+}

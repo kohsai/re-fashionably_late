@@ -1,0 +1,69 @@
+/* 確認フォームのメイン領域のスタイルを定義。 */
+.confirm-form__inner {
+/*
+・margin: 32px auto 0;: 上下に32pxの余白、左右に自動で中央揃えの余白を設定。
+・width: 74%;: 要素の幅を親要素の74%に設定。
+・font-size: 16px;: フォントサイズを16pxに設定。 */
+  margin: 32px auto 0;
+  width: 74%;
+  font-size: 16px;
+}
+
+/* 確認フォーム内のテーブルのスタイルを定義 */
+.confirm-form__table {
+/*
+・width: 100%;: テーブルの幅を親要素の100%に設定。
+・border-collapse: collapse;: テーブルのセル間の境界線を一つにまとめる。 */
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+/* 確認フォーム内のテーブルの行のスタイルを定義 */
+.confirm-form__row {
+/* border: 1px solid #E0DFDE;:
+   行に1ピクセルのボーダーをつける。色は指定の色。 */
+  border: 1px solid #E0DFDE;
+}
+
+/* 確認フォーム内のテーブルのラベルとデータセルのスタイルを定義。 */
+.confirm-form__label,
+.confirm-form__data {
+/* padding: 16px 48px;: セル内に上下16px、左右48pxのパディングを設定。 */
+  padding: 16px 48px;
+}
+
+/* 確認フォーム内のテーブルのラベルセルのスタイルを定義 */
+.confirm-form__label {
+/*
+・width: calc(100% / 3);: ラベルセルの幅を親要素の1/3に設定。
+・background-color: #BAA899;: ラベルセルの背景色を指定の色にする。
+・color: #FFF;: ラベルセルの文字色を白に指定。
+・text-align: left;: ラベルセルのテキストを左揃えにする。
+・font-weight: 400;: ラベルセルのフォントを標準の太さにする。 */
+  width: calc(100% / 3);
+  background-color: #BAA899;
+  color: #FFF;
+  text-align: left;
+  font-weight: 400;
+}
+
+/* ボタン領域のスタイルを定義 */
+.confirm-form__btn-inner {
+/*
+・display: flex;: フレックスボックスレイアウトを使用。
+・justify-content: center;: ボタンを水平方向に中央揃えする。
+・margin-top: 32px;: 上部に32pxの余白を設定。
+・gap: 32px;: ボタン間の隙間を32pxにする。 */
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+
+  gap: 32px;
+}
+
+/* 戻るボタンのスタイルを定義。 */
+.confirm-form__back-btn {
+/* text-decoration: underline;: テキストに下線を付ける。 */
+  text-decoration:underline;
+}

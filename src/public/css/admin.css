@@ -1,0 +1,449 @@
+/* この CSS コードは、管理画面のフォームやテーブル、モーダルウィンドウなどのレイアウトとスタイルを定義。 */
+
+/* input, select: 入力フォームと選択リストの基本スタイルを定義。ボーダーとテキストカラーを設定している。 */
+/* 枠線: 選択ボックスの外周に、薄い灰色の線（1ピクセルの太さ）を引いている。
+文字色: 選択ボックス内の文字を、やや暗い茶色で表示。
+役割: ユーザーが選択肢から一つを選ぶ際に使用する部品。このスタイルによって、他の要素との視覚的な区別を付け、選択項目が分かりやすくなっている。 */
+
+input,
+select {
+  border: 1px solid #E3DED9;
+  color: #8B7969;
+}
+
+/* 余白: 上下に32ピクセルの空白を作り、左右は中央揃え。
+幅: 親要素の84%の幅に設定することで、画面サイズに合わせて要素の大きさを調整できる。
+役割: 管理画面内のコンテンツを収めるための領域を定義。このスタイルによって、コンテンツが画面の中央に配置され、視覚的にバランスの取れたレイアウトになる。 */
+.admin__inner {
+  margin: 32px auto 0;
+  width: 84%;
+}
+
+
+/* フォーム */
+
+/* display: flex;: フォーム内の要素を横並びに配置。
+align-items: stretch;: 各要素の高さを揃える。
+flex-wrap: wrap;: 画面が狭い場合、要素を折り返して表示。
+gap: 24px;: 各要素の間隔を24px空ける。 */
+.search-form {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+
+/* padding: 8px 12px;: 入力欄の内側の余白を設定し。
+min-width: 324px;: 入力欄の最小幅を324pxに設定。これにより、プレースホルダーのテキストが全て表示されるようにしている。
+border: 1px solid #E3DED9;: 枠線を1ピクセルの太さ、#E3DED9（灰色）で描画。
+background-color: #FBFBFB;: 背景色を薄い灰色に指定。 */
+.search-form__keyword-input {
+  padding: 8px 12px;
+  /* placeholderが表示される最低限の幅を最小値とする */
+  min-width: 324px;
+  border: 1px solid #E3DED9;
+  background-color: #FBFBFB;
+}
+
+
+/* position: relative;: 子要素に対して相対的な位置指定を可能に。 */
+.search-form__gender,
+.search-form__category {
+  position: relative;
+}
+
+
+/* ::after疑似要素:この部分は、対象となる要素の後に擬似要素（::after）を生成することを指定している。 */
+/* 選択欄の右側に三角形のアイコンを表示。
+
+/* position: absolute;: 生成された三角形を絶対位置で配置。これにより、親要素ではなくブラウザウィンドウを基準に位置を指定できる。
+top: 50%;: 三角形のトップ位置を親要素の高さの50%の位置に設定。
+right: 8%;: 三角形の右位置を親要素の幅の8%の位置に設定。
+width: 0; height: 0;: 三角形の幅と高さを0に設定。これは、三角形をボーダーだけで作成するため。
+border-top: 12px solid #BEB1A6;: 三角形の上辺を12ピクセルの太さで、#BEB1A6という色の実線に指定。これが三角形の本体になる。
+border-right: 8px solid transparent;: 三角形の右辺を8ピクセルの太さで透明に。
+border-left: 8px solid transparent;: 三角形の左辺を8ピクセルの太さで透明に。
+content: "";: 擬似要素に空のコンテンツを設定。
+transform: translateY(-50%);: 三角形を垂直方向に50%上に移動させる。これにより、三角形のトップ位置が親要素の中央に正確に揃う。 */
+.search-form__gender::after,
+.search-form__category::after {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  width: 0;
+  height: 0;
+  border-top: 12px solid #BEB1A6;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  content: "";
+  transform: translateY(-50%);
+}
+
+
+/* この部分は、対象となる要素をまとめて指定している。 */
+.search-form__gender-select,
+.search-form__category-select {
+/* padding: 8px 12px;: 内側の余白を上下8ピクセル、左右12ピクセルに設定。
+height: 100%;: 要素の高さを親要素の100%に設定。これにより、要素が親要素と同じ高さになる。
+background-color: #F4F4F4;: 要素の背景色を薄い灰色（#F4F4F4）に設定。 */
+  padding: 8px 12px;
+  height: 100%;
+  background-color: #F4F4F4;
+}
+
+/* 性別選択用のセレクトボックスのスタイルを指定 */
+.search-form__gender-select {
+  /* 要素の最小幅を96ピクセルに設定 */
+  min-width: 96px;
+}
+
+/* カテゴリ選択用のセレクトボックスのスタイルを指定 */
+.search-form__category-select {
+/* 要素の最小幅を220ピクセルに設定 */
+  min-width: 220px;
+}
+
+
+
+/* 日付入力欄のスタイルを定義 */
+.search-form__date {
+
+/* position: relative; : この要素を相対位置に設定。これにより、後続の要素に対して相対的な位置指定が可能に。
+padding: 8px 12px; 入力欄の内側の余白を上下8ピクセル、左右12ピクセルに設定。
+min-width: 140px; : 入力欄の最小幅を140ピクセルに設定。
+border: 1px solid #E3DED9; : 入力欄の外枠を1ピクセルの太さで、#E3DED9という灰色で描画。
+background-color: #F4F4F4; : 入力欄の背景色を薄い灰色（#F4F4F4）に設定。 */
+  position: relative;
+  padding: 8px 12px;
+  min-width: 140px;
+  border: 1px solid #E3DED9;
+  background-color: #F4F4F4;
+}
+
+/* この部分は、日付入力欄の右側に表示されるカレンダーアイコンのスタイルを定義している。ただし、このスタイルは、Webkitベースのブラウザ（Safari、Chromeなど）でのみ有効。 */
+.search-form__date::-webkit-calendar-picker-indicator {
+/* position: absolute; : カレンダーアイコンを絶対位置に設定。これにより、親要素ではなくブラウザウィンドウを基準に位置指定が可能になる。
+top: 0; right: 0; bottom: 0; left: 0; : カレンダーアイコンを親要素（日付入力欄）の四隅にぴったり合わせるように設定している。
+z-index: 1; : カレンダーアイコンを他の要素よりも前面に表示するように設定。
+width: auto; height: auto; : カレンダーアイコンの幅と高さを自動調整する。
+background: transparent; : カレンダーアイコンの背景を透明に設定。 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  background: transparent;
+}
+
+
+
+/* 日付入力欄の右側に三角形のアイコンを表示するためのスタイルを定義 */
+.search-form__date::after {
+/* position: absolute; : 三角形を絶対位置で配置する。これにより、親要素ではなくブラウザウィンドウを基準に位置指定が可能になる。
+top: 50%; : 三角形のトップ位置を親要素の高さの50%の位置に設定。
+right: 12px; : 三角形の右位置を親要素の右端から12ピクセルの位置に設定。
+width: 0; height: 0; : 三角形の幅と高さを0に設定。これは、三角形をボーダーだけで作成するため。
+border-top: 12px solid #BEB1A6; : 三角形の上辺を12ピクセルの太さで、#BEB1A6という色の実線に設定。これが三角形の本体になる。
+border-right: 8px solid transparent;三角形の右辺を8ピクセルの太さで透明に。
+border-left: 8px solid transparent;三角形の左辺を8ピクセルの太さで透明に。
+content: ""; : 擬似要素に空のコンテンツを設定。
+transform: translateY(-50%); : 三角形を垂直方向に50%上に移動させる。これにより、三角形のトップ位置が親要素の中央に正確に揃う。 */
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid #BEB1A6;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  content: "";
+  transform: translateY(-50%);
+}
+
+
+/* 検索フォームのアクションボタン領域のスタイルを定義 */
+.search-form__actions {
+/* display: flex;: 要素を横並びに配置。
+   gap: 24px; ボタン間の間隔を24ピクセルに設定。 */
+  display: flex;
+  gap: 24px;
+}
+
+/* 検索ボタンとリセットボタンの共通スタイルを定義 */
+.search-form__search-btn,
+.search-form__reset-btn {
+/* padding: 12px; : ボタンの内側の余白を12ピクセルに設定。
+width: 90px; : ボタンの幅を90ピクセルに設定。 */
+  padding: 12px;
+  width: 90px;
+}
+
+/* リセットボタンの固有スタイルを定義 */
+.search-form__reset-btn {
+  /* background-color: #D9C6B5; : リセットボタンの背景色を#D9C6B5に設定 */
+  background-color: #D9C6B5;
+}
+
+
+
+/* エクスポートボタン */
+/* エクスポートフォームと呼ばれる要素のスタイルを定義 */
+.export-form {
+/* display: flex; : この要素内の子要素を横並びに配置。
+align-items: center; : 子要素を垂直方向に中央揃えにする。
+justify-content: space-between; : 子要素を横方向に均等に分布させ、両端の子要素は容器の両端に配置。
+margin-top: 32px; : この要素の上部に32ピクセルの余白を設定。 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+/* エクスポートボタンのスタイルを定義 */
+.export__btn {
+/* background-color: #E1DBD6; : ボタンの背景色を#E1DBD6という色に設定。
+color: #8B7969; : ボタンの文字色を#8B7969という色に設定。
+font-weight: 400; : ボタンの文字の太さを標準の太さ（400）に設定。 */
+  background-color: #E1DBD6;
+  color: #8B7969;
+  font-weight: 400;
+}
+
+
+/* テーブル */
+/* 管理画面内に表示されるテーブルのレイアウトとスタイルを定義 */
+.admin__table {
+/* margin-top: 16px;: テーブルの上部に16ピクセルの余白を設定。
+width: 100%;: テーブルの幅を親要素の幅いっぱいに設定。
+border-collapse: collapse;: テーブルのセル間の境界線を一つにまとめ、すっきりとした見た目になる。 */
+  margin-top: 16px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+.admin__row {
+  /* border: 1px solid #E0DFDE;: テーブルの各行に、#E0DFDEという色の1ピクセルの枠線を引いている。 */
+  border: 1px solid #E0DFDE;
+}
+
+.admin__label,
+.admin__data {
+  /* padding: 16px 8px;: セルの内側の余白を上下16ピクセル、左右8ピクセルに設定。これは、セルの中身と枠線との間隔を調整し、見やすくするためのもの。 */
+  padding: 16px 8px;
+}
+
+
+
+/* 管理画面内のテーブルのヘッダー（ラベル）とデータセルのスタイルをさらに細かく定義している。また、テーブル内の詳細ボタンのスタイルも定義。 */
+
+
+.admin__label:first-of-type,
+.admin__data:first-of-type {
+  /* padding-left: 48px;: テーブルの最初の列のラベルとデータセルの左側に48ピクセルの余白を設定。 */
+  padding-left: 48px;
+}
+
+.admin__label:last-of-type,
+.admin__data:last-of-type {
+/* padding-right: 48px;: テーブルの最後の列のラベルとデータセルの右側に48ピクセルの余白を設定。 */
+  padding-right: 48px;
+}
+
+
+.admin__label {
+/* background-color: #8B7969;: ラベルセルの背景色を指定の色に設定。
+color: #FFF;: ラベルセルの文字色を白に設定。
+text-align: left;: ラベルセルのテキストを左揃えにする。
+font-weight: 400;: ラベルセルの文字の太さを標準の太さ（400）に設定。 */
+  background-color: #8B7969;
+  color: #FFF;
+  text-align: left;
+  font-weight: 400;
+}
+
+.admin__detail-btn {
+/* padding: 8px 12px;ボタン内側の余白を上下8ピクセル、左右12ピクセルに設定。
+border: 1px solid #D9C6B5;: ボタン外枠を1ピクセルの太さで、指定の色で描画。
+background-color: #F0F0F0;: ボタンの背景色を指定の色に設定。
+color: #D9C6B5;: ボタンの文字色を指定の色に設定。
+text-decoration: none;: ボタンのテキストに下線を付けない設定。 */
+  padding: 8px 12px;
+  border: 1px solid #D9C6B5;
+  background-color: #F0F0F0;
+  color: #D9C6B5;
+  text-decoration: none;
+}
+
+/* ※  first-of-typeと:last-of-typeは、
+特定の要素の最初のものや最後のものにスタイルを適用するための疑似クラス。
+
+※ 疑似クラスとは？
+CSSの疑似クラスとは、HTMLに記述されていない要素の状態や状況に基づいて、
+要素を選択し、スタイルを適用するための仕組み。
+
+例えば、
+・リンクがクリックされた状態
+・フォーム要素にフォーカスが当たっている状態
+・リストの最初の要素
+・リストの最後の要素
+など、様々な状態を指定することができる。
+
+--- 疑似クラスを使うメリット ---
+HTMLの構造を変えずにスタイルを変更できる : HTMLの構造を変更せずに、CSSだけで要素の見た目を変化させることができる。
+動的なスタイルの表現 : ユーザーの操作やページの状態に応じて、動的にスタイルを変更することができる。
+複雑なセレクタの記述 : 複数の条件を組み合わせた複雑なセレクタを記述することができる。
+
+--- よく使われる疑似クラスの例 ---
+:hover: マウスが要素の上に乗った時
+:active: 要素がクリックされた時
+:focus: フォーム要素にフォーカスが当たった時
+:first-child: 親要素の最初の子要素
+:last-child: 親要素の最後の子要素
+:nth-child(n): 親要素のn番目の子要素
+:link: 未訪問のリンク
+:visited: 訪問済みのリンク
+
+--- 疑似クラスの注意点 ---
+ブラウザの互換性: すべてのブラウザで同じように動作するとは限らない。
+複雑なセレクタ: 複雑なセレクタは、ブラウザのレンダリング速度を低下させる可能性がある。*/
+
+
+
+/* モーダル
+/* モーダルとは、ユーザーの操作を一時的に遮断し、重要な情報を表示するウィンドウのこと。このコードでは、CSSを使ってモーダルの基本的な構造と表示・非表示の制御を行っている。 */
+.modal {
+/* position: fixed;: モーダルを画面上に固定表示する。
+top: 0; left: 0;: モーダルの左上隅を画面の左上隅に配置する。
+visibility: hidden;: モーダルを初期状態で非表示にする。
+width: 100%; height: 100%;: モーダルの幅と高さを画面いっぱいに設定する。
+opacity: 0;: モーダルの透明度を0に設定し、完全に透明にする。  */
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.modal:target {
+/* visibility: visible;: モーダルを表示状態にする。
+opacity: 1;: モーダルの透明度を1に設定し、完全に不透明にする。 */
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.modal-overlay {
+/* position: absolute;: オーバーレイを絶対位置で配置する。
+top: 0; left: 0;: オーバーレイの左上隅をモーダルの左上隅に配置する。
+display: block;: オーバーレイを表示する。
+width: 100%; height: 100%;:
+オーバーレイの幅と高さをモーダルと同じサイズにする。 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* コードの役割
+.modalクラスは、モーダルの基本的なスタイルを定義している。
+初期状態では非表示で透明になっている。
+.modal:target疑似クラスは、モーダルを表示させるためのスタイルを定義している。モーダルを表示させたいときは、モーダル要素にIDを付けて、リンクやボタンなどでそのIDを指定することで、モーダルが表示される。
+.modal-overlayクラスは、モーダルの背景となるオーバーレイのスタイルを定義している。 */
+
+
+
+/* モーダルのメインコンテンツ部分のスタイルを定義 */
+.modal__inner {
+/*
+・position: absolute;: モーダル内の絶対位置指定が可能になる。
+・top: 50%; left: 50%;:
+モーダルを画面の中央に配置するために、トップと左を50%に設定。
+・width: 50%;: モーダルの幅を画面幅の50%に設定。
+・border: 1px solid #8B7969;:
+モーダルに1ピクセルの太さのボーダーをつける。色は指定の色。
+・background-color: #fff;: モーダルの背景色を白に設定。
+・box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);:
+モーダルに影を付ける。影の色は指定の色で、透明度は25%。
+・transform: translate(-50%, -50%);:
+モーダルを正確に画面の中央に配置するために、水平方向と垂直方向に50%ずつ移動させる。 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  border: 1px solid #8B7969;
+  background-color: #fff;
+  box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
+  transform: translate(-50%, -50%);
+}
+
+/* モーダルのコンテンツ領域のスタイルを定義 */
+.modal__content {
+/*
+position: relative;: コンテンツ領域内で相対的な位置指定が可能になる。
+padding: 64px 64px;: コンテンツ領域の上下左右に64ピクセルの余白を設定。*/
+  position: relative;
+  padding: 64px 64px;
+}
+
+/* フォーム要素のグループのスタイルを定義 */
+.modal-form__group {
+/* display: grid;: グリッドレイアウトを使用する。
+margin-top: 32px;: グループの上部に32ピクセルの余白を設定。
+grid-template-columns: 1fr 2fr;:
+グリッドの列を2列に分割し、幅の比率を1:2にする。
+gap: 20px;: グリッドアイテム間の隙間を20ピクセルに設定。 */
+  display: grid;
+  margin-top: 32px;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+/* フォームラベルのスタイルを定義 */
+.modal-form__label {
+  /* ラベルの文字を太字にする。 */
+  font-weight: bold;
+}
+
+/* 削除ボタンのスタイルを定義 */
+.modal-form__delete-btn {
+/*
+・margin: 64px auto 0;:  ボタンの上下に64ピクセルの余白、
+    左右を自動で中央揃え、下部に0ピクセルの余白を指定。
+・background-color: #BA370D;: ボタンの背景色を指定の色に指定。
+・color: #FFF;: ボタンの文字色を白に指定。 */
+  margin: 64px auto 0;
+  background-color: #BA370D;
+  color: #FFF;
+}
+
+/* モーダルを閉じるボタンのスタイルを定義 */
+.modal__close-btn {
+/*
+・position: absolute;: ボタンを絶対位置で配置。
+・top: 32px; right: 32px;: ボタンをモーダルの右上に配置。
+・width: 32px; height: 32px;: ボタンのサイズを32ピクセル正方形に指定。
+・border: 1px solid #8B7969;: ボタンに1ピクセルのボーダーをつける。
+・border-radius: 50%;: ボタンを丸くする。
+・color: #8B7969;: ボタンの文字色を指定の色に指定。
+・text-align: center;: ボタンのテキストを中央揃えにする。
+・text-decoration: none;: ボタンのテキストに下線を取り除く。 */
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #8B7969;
+  border-radius: 50%;
+  color: #8B7969;
+  text-align: center;
+  text-decoration: none;
+}
